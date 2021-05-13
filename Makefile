@@ -11,10 +11,10 @@ KDIR_RESOLVED := $(shell readlink -f $(KDIR))
 PWD := $(shell pwd)
 
 all:
-	$(MAKE) -C $(KDIR_RESOLVED) M=$(PWD) modules
+	$(MAKE) -L -C $(KDIR_RESOLVED) M=$(PWD) modules
 
 clean:
-	$(MAKE) -C $(KDIR_RESOLVED) M=$(PWD) clean
+	$(MAKE) -L -C $(KDIR_RESOLVED) M=$(PWD) clean
 
 install:
-	$(MAKE) -C $(KDIR_RESOLVED) M=$(PWD) modules_install
+	$(MAKE) -L -C $(KDIR_RESOLVED) M=$(PWD) modules_install
