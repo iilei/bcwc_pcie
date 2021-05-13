@@ -5,7 +5,8 @@ KVERSION := $(KERNELRELEASE)
 ifeq ($(origin KERNELRELEASE), undefined)
 KVERSION := $(shell uname -r)
 endif
-KDIR := $(readlink -f  "/lib/modules/$(KVERSION)/build")
+
+KDIR := $(shell readlink -f /lib/modules/$(KVERSION)/build)
 PWD := $(shell pwd)
 
 all:
